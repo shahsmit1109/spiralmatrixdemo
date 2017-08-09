@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webshar Spriral Matrix</title>
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+	<div ng-app="demo" ng-controller="demoCtr">
+		<div>
+			<label for="rows">Enter no of rows</label> <input type="number"
+				ng-model="rows" name="rows">
+		</div>
+		<div>
+			<label for="columns">Enter no of columns</label> <input type="number"
+				ng-model="columns" name="columns">
+		</div>
+		<div>
+			<label for="matVallbl" ng-if="rows !=0 && columns !=0">Enter grid values</label> 
+			<table name="matVallbl">
+				<tr ng-repeat="row in getRows() track by $index">
+					<td ng-repeat="cols in getColumns() track by $index">
+						<div>
+							<input
+								ng-model="matVal[$parent.$index][$index]" type="number"
+								name="matrixValue">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<button ng-click="getSpiralPath()">Whats the Spiral Path ?</button>
+		</div>
+		<div ng-hide="responseDisabled">
+			The spiral path is <p>{{response}}</p>
+		</div>
+	</div>
+	<script
+		src="/js/lib/angular.min.js"></script>
+	<script src="/js/app/app.js"></script>
+</body>
+</html>
